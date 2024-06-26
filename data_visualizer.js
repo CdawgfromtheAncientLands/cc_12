@@ -44,3 +44,28 @@ function initializeVisualization(data) {
         createTable(sortedData);
     });
 }
+function createTable(data) {
+    const svg = d3.select("#dataSVG");
+    svg.selectAll("*").remove();
+
+    // Create table headers
+    const headers = ["Date", "Stock", "Price"];
+    const headerRow = svg.append("g").attr("transform", "translate(50, 20)");
+
+    headers.forEach((header, i) => {
+        headerRow.append("text")
+            .attr("x", i * 100)
+            .attr("y", 0)
+            .text(header)
+            .attr("font-weight", "bold");
+    });
+
+    // Create table rows
+    data.forEach((d, i) => {
+        const row = svg.append("g").attr("transform", `translate(50, ${(i + 1) * 20 + 20})`);
+
+        row.append("text").attr("x", 0).attr("y", 0).text(d.Date.toLocaleDateString());
+        row.append("text").attr("x", 100).attr("y", 0).text(d.Stock);
+        row.append("text").attr("x", 200).attr("y", 0).text(d.Price);
+    });
+}
