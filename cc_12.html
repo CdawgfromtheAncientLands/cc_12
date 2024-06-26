@@ -1,0 +1,29 @@
+<!--U94140233-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Stock Data Display</title>
+
+    <script src="https://d3js.org/d3.v6.min.js"></script>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <label for="filterOptions">Sort by:</label>
+    <select id="filterOptions">
+        <option value="dateAsc">Date (ascending)</option>
+        <option value="dateDesc">Date (descending)</option>
+        <option value="priceAsc">Price (ascending)</option>
+        <option value="priceDesc">Price (descending)</option>
+        <option value="company">Company</option>
+    </select><br>
+
+    <svg id="dataSVG" width="600" height="600" style="border: 1px solid black;"></svg>
+    
+    <script src="data_visualizer.js"></script>
+</body>
+</html>
